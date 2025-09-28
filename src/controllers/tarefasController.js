@@ -1,6 +1,6 @@
 const { Tarefa, validaTarefa, tarefas } = require('../models/Tarefa');
 const { v4: uuidv4, validate: uuidValidate } = require('uuid');
-
+  
 function criarTarefa(req, res) {
   const { descricao, concluida } = req.body;
 
