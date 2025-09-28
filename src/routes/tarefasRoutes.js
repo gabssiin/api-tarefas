@@ -1,7 +1,9 @@
+// src/routes/tarefasRoutes.js
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/tarefasController');
 
+// Endpoints CRUD
 router.post('/', controller.criarTarefa);
 router.get('/', controller.listarTarefas);
 router.get('/:objectId', controller.obterTarefa);
