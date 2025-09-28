@@ -1,0 +1,74 @@
+{
+  "info": {
+    "name": "API Tarefas - Coleção",
+    "_postman_id": "d0a1e8d2-xxxx-xxxx-xxxx-xxxxxxxx",
+    "description": "Coleção para testar a API de tarefas. Defina a variável base_url para a URL do backend na Vercel.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://SEU_BACKEND.vercel.app",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Healthcheck",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Criar tarefa",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Comprar leite\",\n  \"concluida\": false\n}"
+        },
+        "url": { "raw": "{{base_url}}/tarefas", "host": ["{{base_url}}"], "path": ["tarefas"] }
+      }
+    },
+    {
+      "name": "Listar tarefas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/tarefas", "host": ["{{base_url}}"], "path": ["tarefas"] }
+      }
+    },
+    {
+      "name": "Obter tarefa por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/tarefas/{{objectId}}", "host": ["{{base_url}}"], "path": ["tarefas", "{{objectId}}"] }
+      }
+    },
+    {
+      "name": "Atualizar tarefa",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"descricao\": \"Comprar pão\",\n  \"concluida\": true\n}" },
+        "url": { "raw": "{{base_url}}/tarefas/{{objectId}}", "host": ["{{base_url}}"], "path": ["tarefas", "{{objectId}}"] }
+      }
+    },
+    {
+      "name": "Deletar tarefa",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": { "raw": "{{base_url}}/tarefas/{{objectId}}", "host": ["{{base_url}}"], "path": ["tarefas", "{{objectId}}"] }
+      }
+    }
+  ]
+}
